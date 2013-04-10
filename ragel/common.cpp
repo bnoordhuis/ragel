@@ -99,6 +99,16 @@ HostType hostTypesJava[] =
 	{ "int",     0,  "int",    true,   true,  false,  INT_MIN,   INT_MAX,     4 },
 };
 
+/* TODO(bnoordhuis) Decide what to use. Strings are UCS-2 while numbers are
+ * doubles. Typed arrays on the other hand provide the full range of types
+ * but aren't available everywhere.
+ */
+HostType hostTypesJS[] =
+{
+	{ "char",    0,  "char",   true,   true,  false,  CHAR_MIN,  CHAR_MAX,    1 },
+	{ "int",     0,  "int",    true,   true,  false,  INT_MIN,   INT_MAX,     4 },
+};
+
 /* What are the appropriate types for ruby? */
 HostType hostTypesRuby[] = 
 {
@@ -130,6 +140,7 @@ HostLang hostLangD =      { HostLang::D,      hostTypesD,      9,  hostTypesD+2,
 HostLang hostLangD2 =     { HostLang::D2,     hostTypesD,      9,  hostTypesD+2,       true };
 HostLang hostLangGo =     { HostLang::Go,     hostTypesGo,    10,  hostTypesGo+0,      false };
 HostLang hostLangJava =   { HostLang::Java,   hostTypesJava,   4,  hostTypesJava+2,    false };
+HostLang hostLangJS =     { HostLang::JS,     hostTypesJS,     2,  hostTypesJS+0,      false };
 HostLang hostLangRuby =   { HostLang::Ruby,   hostTypesRuby,   2,  hostTypesRuby+0,    false };
 HostLang hostLangCSharp = { HostLang::CSharp, hostTypesCSharp, 9,  hostTypesCSharp+4,  true };
 HostLang hostLangOCaml =  { HostLang::OCaml,  hostTypesOCaml,  1,  hostTypesOCaml+0,   false };

@@ -93,6 +93,10 @@ tag_ragel_head: TAG_ragel
 			hostLang = &hostLangJava;
 			outStream = javaOpenOutput( sourceFileName );
 		}
+		else if ( strcmp( langAttr->value, "JavaScript" ) == 0 ) {
+			hostLang = &hostLangJS;
+			outStream = jsOpenOutput( sourceFileName );
+		}
 		else if ( strcmp( langAttr->value, "Ruby" ) == 0 ) {
 			hostLang = &hostLangRuby;
 			outStream = rubyOpenOutput( sourceFileName );
@@ -103,7 +107,8 @@ tag_ragel_head: TAG_ragel
 		}
 		else {
 			error($1->loc) << "expecting lang attribute to be "
-					"one of C, D, Java, Ruby or C#" << endp;
+					"one of C, D, Java, JavaScript, Ruby "
+					"or C#" << endp;
 		}
 	};
 
