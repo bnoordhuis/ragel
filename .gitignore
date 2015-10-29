@@ -1,0 +1,10 @@
+*.o
+.deps/
+Makefile
+config.log
+config.status
+doc/ragel.1
+ragel/config.h
+ragel/ragel
+ragel/stamp-h1
+test/runtests
