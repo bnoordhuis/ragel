@@ -49,6 +49,8 @@
 
 #include "javacodegen.h"
 
+#include "jscodegen.h"
+
 #include "gocodegen.h"
 #include "gotable.h"
 #include "goftable.h"
@@ -203,6 +205,17 @@ CodeGenData *cdMakeCodeGen( const char *sourceFileName, const char *fsmName, ost
 CodeGenData *javaMakeCodeGen( const char *sourceFileName, const char *fsmName, ostream &out )
 {
 	CodeGenData *codeGen = new JavaTabCodeGen(out);
+
+	codeGen->sourceFileName = sourceFileName;
+	codeGen->fsmName = fsmName;
+
+	return codeGen;
+}
+
+/* Invoked by the parser when a ragel definition is opened. */
+CodeGenData *jsMakeCodeGen( const char *sourceFileName, const char *fsmName, ostream &out )
+{
+	CodeGenData *codeGen = new JSTabCodeGen(out);
 
 	codeGen->sourceFileName = sourceFileName;
 	codeGen->fsmName = fsmName;
@@ -376,6 +389,8 @@ CodeGenData *makeCodeGen( const char *sourceFileName, const char *fsmName, ostre
 		cgd = goMakeCodeGen( sourceFileName, fsmName, out );
 	else if ( hostLang == &hostLangJava )
 		cgd = javaMakeCodeGen( sourceFileName, fsmName, out );
+	else if ( hostLang == &hostLangJS )
+		cgd = jsMakeCodeGen( sourceFileName, fsmName, out );
 	else if ( hostLang == &hostLangRuby )
 		cgd = rubyMakeCodeGen( sourceFileName, fsmName, out );
 	else if ( hostLang == &hostLangCSharp )
@@ -398,6 +413,8 @@ void lineDirective( ostream &out, const char *fileName, int line )
 			goLineDirective( out, fileName, line );
 		else if ( hostLang == &hostLangJava )
 			javaLineDirective( out, fileName, line );
+		else if ( hostLang == &hostLangJS )
+			jsLineDirective( out, fileName, line );
 		else if ( hostLang == &hostLangRuby )
 			rubyLineDirective( out, fileName, line );
 		else if ( hostLang == &hostLangCSharp )

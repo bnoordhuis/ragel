@@ -1406,6 +1406,7 @@ void InputData::writeLanguage( std::ostream &out )
 		case HostLang::D2:    out << "D2"; break;
 		case HostLang::Go:   out << "Go"; break;
 		case HostLang::Java: out << "Java"; break;
+		case HostLang::JS:   out << "JavaScript"; break;
 		case HostLang::Ruby: out << "Ruby"; break;
 		case HostLang::CSharp: out << "C#"; break;
 		case HostLang::OCaml: out << "OCaml"; break;

@@ -8,7 +8,7 @@ ragel_CXXFLAGS = -Wall
 ragel_SOURCES = \
 	buffer.h cdgoto.h cscodegen.h csipgoto.h inputdata.h rbxgoto.h \
 	rubyflat.h cdcodegen.h cdipgoto.h csfflat.h cssplit.h javacodegen.h \
-	redfsm.h rubyftable.h cdfflat.h cdsplit.h csfgoto.h cstable.h \
+	jscodegen.h redfsm.h rubyftable.h cdfflat.h cdsplit.h csfgoto.h cstable.h \
 	parsedata.h rlparse.h rubytable.h cdfgoto.h cdtable.h csflat.h \
 	dotcodegen.h parsetree.h rlscan.h version.h cdflat.h common.h \
 	csftable.h fsmgraph.h pcheck.h rubycodegen.h xmlcodegen.h cdftable.h \
@@ -20,7 +20,7 @@ ragel_SOURCES = \
 	fsmattach.cpp fsmmin.cpp fsmgraph.cpp fsmap.cpp rlscan.cpp rlparse.cpp \
 	inputdata.cpp common.cpp redfsm.cpp gendata.cpp cdcodegen.cpp \
 	cdtable.cpp cdftable.cpp cdflat.cpp cdfflat.cpp cdgoto.cpp cdfgoto.cpp \
-	cdipgoto.cpp cdsplit.cpp javacodegen.cpp rubycodegen.cpp rubytable.cpp \
+	cdipgoto.cpp cdsplit.cpp javacodegen.cpp jscodegen.cpp rubycodegen.cpp rubytable.cpp \
 	rubyftable.cpp rubyflat.cpp rubyfflat.cpp rbxgoto.cpp cscodegen.cpp \
 	cstable.cpp csftable.cpp csflat.cpp csfflat.cpp csgoto.cpp csfgoto.cpp \
 	csipgoto.cpp cssplit.cpp dotcodegen.cpp xmlcodegen.cpp \

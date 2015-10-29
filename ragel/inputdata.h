@@ -95,6 +95,7 @@ struct InputData
 	void cdDefaultFileName( const char *inputFile );
 	void goDefaultFileName( const char *inputFile );
 	void javaDefaultFileName( const char *inputFile );
+	void jsDefaultFileName( const char *inputFile );
 	void rubyDefaultFileName( const char *inputFile );
 	void csharpDefaultFileName( const char *inputFile );
 	void ocamlDefaultFileName( const char *inputFile );

@@ -73,6 +73,15 @@ void InputData::javaDefaultFileName( const char *inputFile )
 }
 
 /* Invoked by the parser when the root element is opened. */
+void InputData::jsDefaultFileName( const char *inputFile )
+{
+	/* If the output format is code and no output file name is given, then
+	 * make a default. */
+	if ( outputFileName == 0 )
+		outputFileName = fileNameFromStem( inputFile, ".js" );
+}
+
+/* Invoked by the parser when the root element is opened. */
 void InputData::rubyDefaultFileName( const char *inputFile )
 {
 	/* If the output format is code and no output file name is given, then
@@ -115,6 +124,9 @@ void InputData::makeOutputStream()
 				break;
 			case HostLang::Java:
 				javaDefaultFileName( inputFileName );
+				break;
+			case HostLang::JS:
+				jsDefaultFileName( inputFileName );
 				break;
 			case HostLang::Go:
 				goDefaultFileName( inputFileName );
