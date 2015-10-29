@@ -27,9 +27,9 @@ AC_CONFIG_HEADER(ragel/config.h)
 
 dnl Choose defaults for the build_parsers and build_manual vars. If the dist
 dnl file is present in the root then default to no, otherwise go for it.
-
-AS_IF([test -r $srcdir/DIST], [. $srcdir/DIST], [build_parsers=yes;
-       build_manual=yes])
+AC_CHECK_FILES( $srcdir/DIST, 
+	[ . $srcdir/DIST; ], 
+	[ build_parsers=yes; build_manual=yes; ] )
 
 dnl
 dnl Enable arg to explicitly control the building of the manual
@@ -138,14 +138,15 @@ dnl Check for the C# compiler.
 AC_CHECK_PROG(GMCS, gmcs, gmcs)
 
 dnl Check for the Go compiler.
-AC_CHECK_PROG(GOBIN, go, go build)
+AC_CHECK_PROG(GOBIN, go, go)
 
 dnl write output files
 AC_OUTPUT(
 	[
-		Makefile ragel/Makefile aapl/Makefile 
+		Makefile
+		ragel/Makefile
+		aapl/Makefile 
 		doc/Makefile doc/ragel.1
-		contrib/Makefile
 		test/Makefile test/runtests
 		examples/Makefile
 	],

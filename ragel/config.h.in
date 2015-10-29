@@ -1,4 +1,4 @@
-/* ragel/config.h.in.  Generated from configure.in by autoheader.  */
+/* ragel/config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Name of package */
 #undef PACKAGE
